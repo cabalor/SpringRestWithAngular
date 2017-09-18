@@ -10,22 +10,20 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import pl.cbl.config.AppConfig;
 
-
-public class Applicatio implements WebApplicationInitializer{
+public class Applicatio implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext cont) throws ServletException {
 		AnnotationConfigWebApplicationContext contex = new AnnotationConfigWebApplicationContext();
-		
+
 		contex.register(AppConfig.class);
 		contex.setServletContext(cont);
-				
+
 		ServletRegistration.Dynamic srv = cont.addServlet("dispatcher", new DispatcherServlet(contex));
-				
+
 		srv.setLoadOnStartup(1);
 		srv.addMapping("/");
 
-			}
-		
 	}
 
+}

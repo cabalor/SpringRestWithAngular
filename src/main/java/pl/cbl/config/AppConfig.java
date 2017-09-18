@@ -14,16 +14,16 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "pl.cbl.*")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
-	@Bean
-	public ViewResolver viewResolver() {
-
-		InternalResourceViewResolver vRes = new InternalResourceViewResolver();
-
-		vRes.setViewClass(JstlView.class);
-		vRes.setPrefix("/WEB-INF/view/");
-		vRes.setSuffix(".jsp");
-
-		return vRes;
-
-	}
+	
+	  @Bean public ViewResolver viewResolver() {
+	  
+	  InternalResourceViewResolver vRes = new InternalResourceViewResolver();
+	  
+	  vRes.setViewClass(JstlView.class); vRes.setPrefix("/WEB-INF/view/");
+	  vRes.setSuffix(".jsp");
+	  
+	  return vRes;
+	  
+	  }
+	 
 }
