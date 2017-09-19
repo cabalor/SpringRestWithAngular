@@ -12,6 +12,7 @@ import pl.cbl.dao.BookDao;
 import pl.cbl.data.Book;
 
 @RestController
+@RequestMapping("/books")
 public class BookController {
 
 	@Autowired
@@ -19,14 +20,22 @@ public class BookController {
 	
 	
 	
-	@RequestMapping("/book/{id}")
+	@RequestMapping("/{id}")
 	public Book getbk(@PathVariable int id) {
 		return bk.getbk(id);
 		
 	}
 	
-	@RequestMapping("/books")
+	@RequestMapping
 	public List<Book> books(){
 		return bk.getBooks();
 	}
+	
+	@RequestMapping("/add/{title}/{author}")
+	public Book add(@PathVariable String title, @PathVariable String author){
+		return bk.addbk(title, author);
+		
+	}
+	
+	
 }
