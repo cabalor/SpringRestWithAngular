@@ -29,7 +29,7 @@ public class BookController {
 	
 	@GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Book getbk(@PathVariable int id) {
-		return bk.getbk(id);
+		return bk.getbk(id-1);
 		
 	}
 	

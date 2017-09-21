@@ -4,7 +4,7 @@ var apka = angular.module('test', ['ngResource']);
 apka.controller("bookController", function($resource){
     var appi = this;
     var Books = $resource('books/:bookId')
-    appi.book = new Book();
+    appi.book = new Books();
     function getData(){
         appi.books = Books.query(function success(data){
         	console.log("podabrano "+ data)
@@ -23,9 +23,9 @@ apka.controller("bookController", function($resource){
   
     
     appi.addBook = function(book){
-    	api.book.$save(function(data){
+    	appi.book.$save(function(data){
     		getData();
-    		appi.book = new Book();
+    		appi.book = new Books();
     	})
     	/*$http({
     	 method : 'POST',
