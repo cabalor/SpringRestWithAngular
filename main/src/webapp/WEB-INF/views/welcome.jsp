@@ -20,5 +20,13 @@
           <li ng-repeat ="bk in bCont.books">
           tytul {{bk.title}} autor {{bk.author}} </li>
           </ul>
+          
+          <form>
+          <input type="text" ng-model="bCont.book.title" placeholder="title"><br>
+          <input type="text" ng-model="bCont.book.author" placeholder="author"><br>
+          <button ng-click="bCont.addBook(bCont.book)">add book</button>
+          </form>
+          
+          
 </body>
 </html>

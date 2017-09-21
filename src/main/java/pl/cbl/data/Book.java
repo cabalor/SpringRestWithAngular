@@ -39,4 +39,6 @@ public class Book {
 		this.author = newAuthor;
 	}
 
+	public Book() {}
+	
 }

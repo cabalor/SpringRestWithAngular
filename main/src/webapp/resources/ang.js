@@ -14,5 +14,19 @@ apka.controller("bookController", function($http){
             console.log('error '+response.status)
         });
     }
+  
+    
+    appi.addBook = function(book){
+    	$http({
+    	 method : 'POST',
+         url : 'books',
+         data: book
+    }).then(function success(response){
+    	getData();
+    	appi.book={}
+    }, function error(response){
+        console.log('buba '+ book);
+    });
+    }
     getData();
 });
