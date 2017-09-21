@@ -28,6 +28,10 @@ public class BookDao {
 		return book;
 	}
 	
+	public void delBk(int id) {
+		lista.remove(id);
+	}
+	
 	
 	
 	public BookDao() {
