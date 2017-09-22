@@ -20,7 +20,7 @@
 	<h1>{{2+5}} = powinno wyjsc 7</h1>
 	<ul>
 		<li ng-repeat="bk in bCont.books" ng-click="bCont.load(bk.id);">
-			 tytul {{bk.title}} autor {{bk.author}}<button ng-click="bCont.del(bk.id)">del</button></li>
+			 tytul {{bk.title}} autor {{bk.author}}<button ng-click="bCont.del(bk.id)" onClick="window.location.reload()">del</button></li>
 	</ul>
 
 

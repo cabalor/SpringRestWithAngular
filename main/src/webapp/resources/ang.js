@@ -1,7 +1,7 @@
 var apka = angular.module('test', ['ngResource']);
 
 
-apka.controller("bookController", function($resource){
+apka.controller("bookController", function($resource,$route){
     var appi = this;
     var Books = $resource('books/:bookId')
     appi.book = new Books();
@@ -26,11 +26,8 @@ apka.controller("bookController", function($resource){
     appi.del = function(id){
         Books.remove({bookId: id}, function(resp){
         	console.log(resp);
-        	getData();
         });
-    }
+    };
     
     
-        
-    getData();
 });
