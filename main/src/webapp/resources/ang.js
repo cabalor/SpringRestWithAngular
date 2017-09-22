@@ -26,8 +26,8 @@ apka.controller("bookController", function($resource){
     appi.del = function(id){
         Books.remove({bookId: id}, function(resp){
         	console.log(resp);
+        	getData();
         });
-        
     }
     
     

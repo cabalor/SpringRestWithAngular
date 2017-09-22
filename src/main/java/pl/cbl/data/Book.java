@@ -2,10 +2,19 @@ package pl.cbl.data;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
 public class Book {
 
-	private static final AtomicInteger idNumber = new AtomicInteger(0);
-	private int id;
+	//private static final AtomicInteger idNumber = new AtomicInteger(0);
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 	private String title;
 	private String author;
 
@@ -25,16 +34,16 @@ public class Book {
 		this.author = author;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public Book(String newTtile, String newAuthor) {
-		id = idNumber.incrementAndGet();
+		//id = idNumber.incrementAndGet();
 		title = newTtile;
 		this.author = newAuthor;
 	}

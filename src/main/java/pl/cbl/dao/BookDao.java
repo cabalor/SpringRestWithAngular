@@ -3,12 +3,16 @@ package pl.cbl.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import pl.cbl.data.Book;
+import pl.cbl.repo.BookRepo;
 
 @Repository
 @Transactional
@@ -16,24 +20,22 @@ public class BookDao {
 
 	//List<Book> lista = new ArrayList<>();
 
-	public List<Book> getBooks() {
-		return lista;
+	@PersistenceContext
+	private EntityManager em;
+	
 
-	}
-
-	public Book getbk(int id) {
-		Book book = lista.get(id);
-		return book;
+	public Book getbk(long id) {
+		
+		return em.find(Book.class, id);
 	}
 	
-	public Book addbk(String title, String author) {
-		Book book = new Book(title, author);
-		lista.add(book);
-		return book;
+	public void addbk(Book bk) {
+		em.merge(bk);
 	}
 	
-	public void delBk(int id) {
-		lista.remove(id);
+	public void delBk(long id) {
+		Book book = em.find(Book.class, id);
+		em.remove(book);
 	}
 	
 	
