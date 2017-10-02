@@ -15,12 +15,13 @@
 <script src="${res}"></script>
 <title>hello</title>
 </head>
-<body ng-controller="bookController as bCont">
+<body ng-controller="cntr as bCont">
 	<p>hello</p>
 	<h1>{{2+5}} = powinno wyjsc 7</h1>
 	<ul>
 		<li ng-repeat="bk in bCont.books" ng-click="bCont.load(bk.id);">
-			 tytul {{bk.title}} autor {{bk.author}}<button ng-click="bCont.del(bk.id)" onClick="window.location.reload()">del</button></li>
+			 tytul {{bk.title}} autor {{bk.author}}<button ng-click="bCont.del(bk.id)" onClick="window.location.reload()">del</button>
+            <button ng-click="bCont.load(bk.id);">edit</button></li>
 	</ul>
 
 
@@ -36,6 +37,15 @@
 		<h1>{{bCont.det.author}}</h1>
 	</div>
 
-
+     <div ng-show="bCont.det">
+         <form>
+         <input type="text" ng-model="bCont.det.title">
+         <input type="text" ng-model="bCont.det.author">
+         </form>
+         
+	</div>       
+    
+    
+    
 </body>
 </html>
